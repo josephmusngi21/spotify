@@ -1,8 +1,14 @@
 import React from 'react'
+import Tracklist from '../Tracklist/Tracklist'
 
-function SearchResults() {
+import '/SearchResults.jsx';
+
+function SearchResults(props) {
   return (
-    <div>SearchResults</div>
+    <div className='SearchResults'>
+      <h2>Results</h2>
+      <Tracklist tracks={props.searchResults} onAdd={props.onAdd}/>
+    </div>
   )
 }
 
