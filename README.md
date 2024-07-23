@@ -20,7 +20,7 @@ This is a simple Spotify playlist app built with React. It includes a search bar
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/josephmusngi21/spotify
 
 Install NPM packages
 npm install
