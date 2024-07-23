@@ -1,24 +1,29 @@
-import React from 'react';
-import TrackList from '../Tracklist/Tracklist';
+import React, { useCallback } from "react";
+import TrackList from "../Tracklist/Tracklist";
 
-class Playlist extends React.Component {
-  state = {
-    name: 'My Playlist',
-    tracks: [
-      { id: 1, name: 'Track 1', artist: 'Artist 1', album: 'Album 1' },
-      { id: 2, name: 'Track 2', artist: 'Artist 2', album: 'Album 2' },
-      // Add more tracks as needed
-    ],
-  };
+import "./Playlist.module.css";
 
-  render() {
-    return (
-      <div>
-        <h2>{this.state.name}</h2>
-        <TrackList tracks={this.state.tracks} />
-      </div>
-    );
-  }
-}
+const Playlist = (props) => {
+  const handleNameChange = useCallback(
+    (e) => {
+      props.onNameChange(e.target.value);
+    },
+    [props.onNameChange]
+  );
+
+  return (
+    <div className='Playlist'>
+      <input onChange={handleNameChange} defaultValue={'New Playlist'} />
+      <TrackList 
+      tracks={props.playlistTracks}
+      isRemoval={true}
+      onRemove={props.onRemove}
+      />
+      <button className="Playlist-save" onClick={props.onSave}>
+        Save to Spotify
+      </button>
+    </div>
+  )
+};
 
 export default Playlist;
